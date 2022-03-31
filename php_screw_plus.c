@@ -108,7 +108,7 @@ ZEND_API zend_op_array *pm9screw_compile_file(zend_file_handle *file_handle, int
   #endif
   file_handle->handle.fp = pm9screw_ext_fopen(fp);
   file_handle->type = ZEND_HANDLE_FP;
-
+  file_handle->opened_path = expand_filepath(file_handle->filename, NULL TSRMLS_CC);
   return org_compile_file(file_handle, type);
 }
 
